@@ -9,7 +9,7 @@
 
 import TodoList from "./components/TodoList/TodoList";
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
       <TodoList />
@@ -24,6 +24,6 @@ function App() {
       <Counter /> */}
     </>
   );
-}
+};
 
 export default App;

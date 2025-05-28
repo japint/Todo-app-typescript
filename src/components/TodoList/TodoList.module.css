@@ -1,85 +1,163 @@
-body {
-  background-color: hsl(0, 0%, 10%);
-  /* background-image: url("../..");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-  height: 100vh; */
-}
 .toDoList {
-  font-family: Arial, Helvetica, sans-serif;
+  max-width: 600px;
+  margin: 100px auto;
+  padding: 2rem;
+  background: var(--bg-intro);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   text-align: center;
-  margin-top: 100px;
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 h1 {
-  font-size: 4rem;
-  color: white;
+  font-size: var(--fs-h1);
+  margin-bottom: 1.5rem;
+  color: var(--bg-contact);
+}
+
+/* Input */
+input[type="text"] {
+  font-size: 1.2rem;
+  padding: 12px;
+  width: 70%;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  outline: none;
+  margin-bottom: 1rem;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: var(--clr-accent-start);
 }
 
 button {
-  font-size: 1.7rem;
-  font-weight: bold;
-  padding: 10px 20px;
-  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 12px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.5s ease;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  color: var(--btn-text-color);
+  margin: 0.25rem;
+}
+
+button:hover {
+  transform: translateY(-2px);
 }
 
 .addBtn {
-  background-color: hsl(125, 47%, 54%);
+  background-color: var(--btn-bg-add);
 }
 .addBtn:hover {
-  background-color: hsl(125, 47%, 44%);
-}
-.deleteBtn {
-  background-color: hsl(10, 90%, 54%);
-}
-.deleteBtn:hover {
-  background-color: hsl(10, 90%, 44%);
-}
-.moveBtn {
-  background-color: hsl(207, 90%, 54%);
-}
-.moveBtn:hover {
-  background-color: hsl(207, 90%, 44%);
+  background-color: var(--btn-bg-add-hover);
 }
 
-/* input */
-input[type="text"] {
-  font-size: 1.6rem;
-  padding: 10px;
-  border: 2px solid hsla(0, 0%, 80%, 0.5);
-  border-radius: 5px;
-  color: hsla(0, 0%, 0%, 0.5);
+.deleteBtn {
+  background-color: var(--btn-bg-delete);
+}
+.deleteBtn:hover {
+  background-color: var(--btn-bg-delete-hover);
+}
+
+.moveBtn {
+  background-color: var(--btn-bg-move);
+}
+.moveBtn:hover {
+  background-color: var(--btn-bg-move-hover);
 }
 
 ol {
+  list-style: none;
   padding: 0;
+  margin-top: 1.5rem;
 }
 
 li {
-  font-size: 2rem;
-  font-weight: bold;
-  padding: 15px;
-  background-color: hsl(0, 0%, 97%);
-  margin-bottom: 10px;
-  border: 3px solid hsla(0, 0%, 85%, 0.75);
-  border-radius: 5px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--task-bg);
+  color: var(--task-text-color);
+  border-radius: 12px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--task-border);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .text {
   flex: 1;
+  text-align: left;
+  padding-right: 1rem;
+  word-break: break-word;
 }
 
 .deleteBtn,
 .moveBtn {
+  font-size: 0.9rem;
   padding: 8px 12px;
-  font-size: 1.4;
-  margin-left: 10px;
+}
+
+/* Toggle light/dark mode */
+.toggleWrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Switch styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Checked mode */
+input:checked + .slider {
+  background-color: #1c1c1b;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
 }
