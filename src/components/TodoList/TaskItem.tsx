@@ -1,11 +1,6 @@
 import React from "react";
-<<<<<<< HEAD
 import classes from "./TodoList.module.css";
 import { TaskItemProps } from "./types";
-=======
-import { TaskItemProps } from "./types";
-import classes from "./TodoList.module.css";
->>>>>>> 6e54877d0749e59dd440438090c2f6f0438d297a
 
 const TaskItem: React.FC<TaskItemProps> = ({
   task,
