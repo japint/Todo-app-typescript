@@ -10,6 +10,37 @@ import {
   moveTaskUp,
 } from "./todoService";
 
+type Task = string;
+
+type TaskItemProps = {
+  task: Task;
+  index: number;
+  onDelete: (index: number) => void;
+  onMoveUp: (index: number) => void;
+  onMoveDown: (index: number) => void;
+};
+
+const TaskItem: React.FC<TaskItemProps> = ({
+  task,
+  index,
+  onDelete,
+  onMoveUp,
+  onMoveDown,
+}) => (
+  <li>
+    <span className={classes.text}>{task}</span>
+    <button className={classes.deleteBtn} onClick={() => onDelete(index)}>
+      Delete
+    </button>
+    <button className={classes.moveBtn} onClick={() => onMoveUp(index)}>
+      Up
+    </button>
+    <button className={classes.moveBtn} onClick={() => onMoveDown(index)}>
+      Down
+    </button>
+  </li>
+);
+
 const TodoList: React.FC = () => {
   const [tasks, setTasks] = useState<string[]>([
     "Wake up early",
@@ -30,16 +61,6 @@ const TodoList: React.FC = () => {
   return (
     <div className={classes.toDoList}>
       <h1>To-Do-List</h1>
-      <div className={classes.toggleWrapper}>
-        <label className={classes.switch}>
-          <input
-            type="checkbox"
-            checked={isLightMode}
-            onChange={() => setIsLightMode((prev) => !prev)}
-          />
-          <span className={classes.slider}></span>
-        </label>
-      </div>
       <div>
         <input
           type="text"
