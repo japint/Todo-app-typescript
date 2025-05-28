@@ -7,40 +7,10 @@ import {
   moveTaskDown,
   moveTaskUp,
 } from "./todoService";
-
-type Task = string;
-
-type TaskItemProps = {
-  task: Task;
-  index: number;
-  onDelete: (index: number) => void;
-  onMoveUp: (index: number) => void;
-  onMoveDown: (index: number) => void;
-};
-
-const TaskItem: React.FC<TaskItemProps> = ({
-  task,
-  index,
-  onDelete,
-  onMoveUp,
-  onMoveDown,
-}) => (
-  <li>
-    <span className={classes.text}>{task}</span>
-    <button className={classes.deleteBtn} onClick={() => onDelete(index)}>
-      Delete
-    </button>
-    <button className={classes.moveBtn} onClick={() => onMoveUp(index)}>
-      Up
-    </button>
-    <button className={classes.moveBtn} onClick={() => onMoveDown(index)}>
-      Down
-    </button>
-  </li>
-);
+import TaskItem from "./TaskItem";
 
 const TodoList: React.FC = () => {
-  const [tasks, setTasks] = useState<Task[]>([
+  const [tasks, setTasks] = useState<string[]>([
     "Wake up early",
     "Take a shower",
     "Eat breakfast",
@@ -49,7 +19,7 @@ const TodoList: React.FC = () => {
 
   return (
     <div className={classes.toDoList}>
-      <h1>To-Do-List</h1>
+      <h1>APC Todo</h1>
       <div>
         <input
           type="text"
