@@ -1,0 +1,76 @@
+:root {
+  --fw-reg: 300;
+  --fw-bold: 900;
+
+  /* Dark mode colors (default) */
+  --clr-light: #e2e2de;
+  --clr-dark: #1c1c1b;
+
+  --clr-accent-start: #afee1d;
+  --clr-accent-end: #54d817;
+  --clr-accent: linear-gradient(
+    to right,
+    var(--clr-accent-start),
+    var(--clr-accent-end)
+  );
+
+  --bg-intro: #1c1c1b;
+  --bg-about: #6a5d52;
+  --bg-skill: #979086;
+  --bg-project: #b7ac9b;
+  --bg-contact: #e2e2de;
+
+  --fs-h1: 3rem;
+  --fs-h2: 2.25rem;
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+  --fs-sm: 0.75rem;
+
+  /* Colors used */
+  --bg-color: var(--clr-dark);
+  --text-color: var(--clr-light);
+  --input-bg: #f5f5f0;
+  --input-border: #55554f;
+  --btn-text-color: var(--bg-contact);
+  --btn-bg-add: #54d817;
+  --btn-bg-add-hover: #46b413;
+  --btn-bg-delete: #e63946;
+  --btn-bg-delete-hover: #c02735;
+  --btn-bg-move: #457b9d;
+  --btn-bg-move-hover: #2f5d73;
+  --task-bg: #fff;
+  --task-text-color: #1c1c1b;
+  --task-border: #d0d0d0;
+  --toggle-bg: var(--clr-accent);
+  --toggle-text-color: var(--clr-dark);
+}
+
+/* Light mode overrides */
+body.light-mode {
+  --bg-intro: var(--bg-project);
+  --bg-color: var(--clr-light);
+  --text-color: var(--clr-dark);
+  --input-bg: #f5f5f0;
+  --input-border: #ccc;
+  --btn-text-color: var(--clr-dark);
+  --btn-bg-add: #54d817;
+  --btn-bg-add-hover: #46b413;
+  --btn-bg-delete: #e63946;
+  --btn-bg-delete-hover: #c02735;
+  --btn-bg-move: #457b9d;
+  --btn-bg-move-hover: #2f5d73;
+  --task-bg: #fefefe;
+  --task-text-color: #1c1c1b;
+  --task-border: #bbb;
+  --toggle-bg: var(--clr-accent);
+  --toggle-text-color: var(--clr-light);
+}
+
+/* Body styles using variables */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
