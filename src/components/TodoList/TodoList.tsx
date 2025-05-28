@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useEffect } from "react";
 import classes from "./TodoList.module.css";
 import {
   addTask,
@@ -16,10 +16,29 @@ const TodoList: React.FC = () => {
     "Eat breakfast",
   ]);
   const [newTask, setNewTask] = useState<string>("");
+  const [isLightMode, setIsLightMode] = useState(false);
+
+  useEffect(() => {
+    if (isLightMode) {
+      document.body.classList.add("light-mode");
+    } else {
+      document.body.classList.remove("light-mode");
+    }
+  }, [isLightMode]);
 
   return (
     <div className={classes.toDoList}>
       <h1>APC Todo</h1>
+      <div className={classes.toggleWrapper}>
+        <label className={classes.switch}>
+          <input
+            type="checkbox"
+            checked={isLightMode}
+            onChange={() => setIsLightMode((prev) => !prev)}
+          />
+          <span className={classes.slider}></span>
+        </label>
+      </div>
       <div>
         <input
           type="text"

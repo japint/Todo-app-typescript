@@ -1,43 +1,13 @@
-:root {
-  --fw-reg: 300;
-  --fw-bold: 900;
-
-  --clr-light: #e2e2de;
-  --clr-dark: #1c1c1b;
-  --clr-accent: linear-gradient(to right, #afee1d, #54d817);
-  --bg-intro: #1c1c1b;
-  --bg-about: #6a5d52;
-  --bg-skill: #979086;
-  --bg-project: #b7ac9b;
-  --bg-contact: #e2e2de;
-
-  --fs-h1: 3rem;
-  --fs-h2: 2.25rem;
-  --fs-h3: 1.25rem;
-  --fs-body: 1rem;
-  --fs-sm: 0.75rem;
-}
-
-body {
-  margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--clr-dark);
-  color: var(--clr-light);
-  /* background-image: url("../..");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-  height: 100vh; */
-}
 .toDoList {
   max-width: 600px;
   margin: 100px auto;
   padding: 2rem;
-  background-color: #2b2b29;
+  background: var(--bg-intro);
   border-radius: 16px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
   text-align: center;
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 h1 {
@@ -51,14 +21,17 @@ input[type="text"] {
   font-size: 1.2rem;
   padding: 12px;
   width: 70%;
-  border: 2px solid #ccc;
+  border: 2px solid var(--input-border);
   border-radius: 8px;
   outline: none;
   margin-bottom: 1rem;
-  transition: border-color 0.3s;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
 }
+
 input[type="text"]:focus {
-  border-color: #afee1d;
+  border-color: var(--clr-accent-start);
 }
 
 button {
@@ -69,7 +42,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.3s ease;
-  color: white;
+  color: var(--btn-text-color);
   margin: 0.25rem;
 }
 
@@ -78,22 +51,24 @@ button:hover {
 }
 
 .addBtn {
-  background-color: #54d817;
+  background-color: var(--btn-bg-add);
 }
 .addBtn:hover {
-  background-color: #46b413;
+  background-color: var(--btn-bg-add-hover);
 }
+
 .deleteBtn {
-  background-color: #e63946;
+  background-color: var(--btn-bg-delete);
 }
 .deleteBtn:hover {
-  background-color: #c02735;
+  background-color: var(--btn-bg-delete-hover);
 }
+
 .moveBtn {
-  background-color: #457b9d;
+  background-color: var(--btn-bg-move);
 }
 .moveBtn:hover {
-  background-color: #2f5d73;
+  background-color: var(--btn-bg-move-hover);
 }
 
 ol {
@@ -107,21 +82,82 @@ li {
   font-weight: 600;
   padding: 1rem;
   margin-bottom: 1rem;
-  background-color: #fff;
-  color: #1c1c1b;
+  background-color: var(--task-bg);
+  color: var(--task-text-color);
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--task-border);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .text {
   flex: 1;
+  text-align: left;
+  padding-right: 1rem;
+  word-break: break-word;
 }
 
 .deleteBtn,
 .moveBtn {
   font-size: 0.9rem;
   padding: 8px 12px;
+}
+
+/* toggle button */
+.toggleWrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+/* Switch styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Checked mode */
+input:checked + .slider {
+  background-color: #1c1c1b; /* green for light mode */
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
 }
