@@ -7,9 +7,10 @@
 // import ArrayOfObjectsInState from "./components/ArrayOfObjectsInState/ArrayOfObjectsInState";
 // import UpdateStateObjects from "./components/UpdateStateOfObjects/updateStateObjects";
 
+import React from "react";
 import TodoList from "./components/TodoList/TodoList";
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
       <TodoList />
@@ -24,6 +25,6 @@ function App() {
       <Counter /> */}
     </>
   );
-}
+};
 
 export default App;
