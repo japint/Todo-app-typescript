@@ -1,7 +1,7 @@
 import classes from "./TodoList.module.css";
-import { addTask, handleInputChange } from "../services/todoService";
+import { addTask, handleInputChange } from "../../services/todoService";
 import TaskItem from "./TaskItem";
-import { useTaskContext } from "../context/TaskContext";
+import { useTaskContext } from "../../context/TaskContext";
 
 const TodoList = () => {
   const { tasks, setTasks, newTask, setNewTask, isLightMode, setIsLightMode } =

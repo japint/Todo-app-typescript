@@ -1,5 +1,5 @@
 import React from "react";
-import TodoList from "./components/TodoList";
+import TodoList from "./components/TodoList/TodoList";
 import "./globals.css";
 import { TaskProvider } from "./context/TaskContext";
 

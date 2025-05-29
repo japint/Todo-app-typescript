@@ -4,7 +4,6 @@ export const handleInputChange =
   (setNewTask: React.Dispatch<React.SetStateAction<string>>) =>
   (e: ChangeEvent<HTMLInputElement>) => {
     setNewTask(e.target.value);
-    console.log(e.target.value);
   };
 
 export const addTask =

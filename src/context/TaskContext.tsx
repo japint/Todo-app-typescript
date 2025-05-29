@@ -1,54 +1,14 @@
-import React, {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, ReactNode, useContext } from "react";
+import useTaskViewModel from "../viewmodels/useTaskViewModel";
 
-type TaskContextType = {
-  tasks: string[];
-  setTasks: React.Dispatch<React.SetStateAction<string[]>>;
-  newTask: string;
-  setNewTask: React.Dispatch<React.SetStateAction<string>>;
-  isLightMode: boolean;
-  setIsLightMode: React.Dispatch<React.SetStateAction<boolean>>;
-};
+type TaskContextType = ReturnType<typeof useTaskViewModel>;
 
 const TaskContext = createContext<TaskContextType | undefined>(undefined);
 
 export const TaskProvider = ({ children }: { children: ReactNode }) => {
-  const [tasks, setTasks] = useState<string[]>([
-    "Wake up early",
-    "Take a shower",
-    "Eat breakfast",
-  ]);
+  const taskVM = useTaskViewModel();
 
-  const [newTask, setNewTask] = useState<string>("");
-  const [isLightMode, setIsLightMode] = useState(false);
-
-  useEffect(() => {
-    if (isLightMode) {
-      document.body.classList.add("light-mode");
-    } else {
-      document.body.classList.remove("light-mode");
-    }
-  }, [isLightMode]);
-
-  return (
-    <TaskContext.Provider
-      value={{
-        tasks,
-        setTasks,
-        newTask,
-        setNewTask,
-        isLightMode,
-        setIsLightMode,
-      }}
-    >
-      {children}
-    </TaskContext.Provider>
-  );
+  return <TaskContext.Provider value={taskVM}>{children}</TaskContext.Provider>;
 };
 
 export const useTaskContext = () => {

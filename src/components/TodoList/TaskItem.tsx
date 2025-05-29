@@ -1,5 +1,9 @@
-import { deleteTask, moveTaskDown, moveTaskUp } from "../services/todoService";
-import { useTaskContext } from "../context/TaskContext";
+import {
+  deleteTask,
+  moveTaskDown,
+  moveTaskUp,
+} from "../../services/todoService";
+import { useTaskContext } from "../../context/TaskContext";
 import classes from "./TodoList.module.css";
 
 type Props = {
